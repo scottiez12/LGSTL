@@ -1,0 +1,5 @@
+﻿{
+  "DataProvider": "sqlserver",
+  "DataConnectionString": "Data Source=DESKTOP-LSETB8B\\SQL_AGAIN;Initial Catalog=_LivingGreenStL;Integrated Security=True;Persist Security Info=False",
+  "RawDataSettings": {}
+}
