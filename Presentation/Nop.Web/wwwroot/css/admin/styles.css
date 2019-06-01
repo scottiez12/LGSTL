@@ -777,10 +777,12 @@ td.k-state-focused.k-state-selected {
 .main-header .logo {
     padding: 0;
 }
-.main-header .logo-lg {
-    background: url(images/logo.png) no-repeat 50% 50%;
-    height: 50px;
-}
+    .main-header .logo-lg {
+/*updated logo-- affects the 'storefront' image.. for sample purposes; needs a scalable resize TBD on all stock image sizes*/
+        background: url('../../../themes/defaultclean/content/img/lgstlresizetest.png') no-repeat 50% 50%;
+        /*background: url(images/logo.png) no-repeat 50% 50%;*/
+        height: 50px;
+    }
 .main-header .logo-mini {
     background: url(images/logo-mini.png) no-repeat 50% 50%;
     height: 50px;

@@ -40,6 +40,65 @@
 
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <None Remove="Themes\LivingGreenStL\Content\css\print.css" />
+    <None Remove="Themes\LivingGreenStL\Content\css\styles.css" />
+    <None Remove="Themes\LivingGreenStL\Content\css\styles.rtl.css" />
+    <None Remove="Themes\LivingGreenStL\Content\images\ajax-loader-small.gif" />
+    <None Remove="Themes\LivingGreenStL\Content\images\back-button.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\calendar-next.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\calendar-prev.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\close.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\compare-button.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\details.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\discontinued-product-icon.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\download-button.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\edit.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\edit_.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\email-button.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\first.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\ie_warning.jpg" />
+    <None Remove="Themes\LivingGreenStL\Content\images\last.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\loading.gif" />
+    <None Remove="Themes\LivingGreenStL\Content\images\logo.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\menu-icon.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\move.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\new.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\next.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\pointer.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\prev.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\rating1.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\rating2.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\remove.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\remove_.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\reply.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\retry.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\return.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\rss.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\shipping.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\shopping-bag.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\social-sprite.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\subscribe-button.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\toggle-black.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\toggle-gray.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\toggle-white.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\topic-type1.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\topic-type2.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\topic-type3.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\view-grid.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\view-list.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\vote-down-selected.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\vote-down.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\vote-up-selected.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\vote-up.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\watch.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\wishlist-button.png" />
+    <None Remove="Themes\LivingGreenStL\Content\images\_origlogo.png" />
+    <None Remove="Themes\LivingGreenStL\Content\img\lgstlresizetest.png" />
+    <None Remove="Themes\LivingGreenStL\Content\img\LogoLong.png" />
+    <None Remove="Themes\LivingGreenStL\Content\img\LogoStacked.png" />
+    <None Remove="Themes\LivingGreenStL\preview.jpg" />
+    <None Remove="Themes\DefaultClean\Content\images\logo.png" />
+    <None Remove="Themes\DefaultClean\Content\img\lgstlresizetest.png" />
 
     <None Update="Areas\Admin\sitemap.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -48,6 +107,10 @@
 
   <ItemGroup>
     <Folder Include="Plugins\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
   <!-- This target execute after "Build" target.

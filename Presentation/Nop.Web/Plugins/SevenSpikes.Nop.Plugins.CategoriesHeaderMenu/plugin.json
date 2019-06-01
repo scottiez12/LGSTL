@@ -1,0 +1,12 @@
+﻿{
+  "Group": "7Spikes",
+  "FriendlyName": "Nop Categories Header Menu",
+  "SystemName": "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu",
+  "Version": "4.2",
+  "SupportedVersions": [ "4.20" ],
+  "DependsOnSystemNames": [ "SevenSpikes.Core" ],
+  "Author": "Seven Spikes Ltd",
+  "DisplayOrder": 1,
+  "FileName": "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu.dll",
+  "Description": "This plugin allows you have a better Menu"
+}

@@ -1,5 +1,19 @@
-﻿{
+﻿
+/*DEFAULT CONNECTION STRING
+
+{
   "DataProvider": "sqlserver",
   "DataConnectionString": "Data Source=DESKTOP-LSETB8B\\SQL_AGAIN;Initial Catalog=_LivingGreenStL;Integrated Security=True;Persist Security Info=False",
+  "RawDataSettings": {}
+}
+*/
+
+/*
+  SMARTERASP CONNECTION STRING
+  Just used the above 'DataProvider'... not sure if this matters until we test it out.
+  */
+{
+  "DataProvider": "sqlserver",
+  "DataConnectionString": "Data Source=SQL5018.site4now.net;  Initial Catalog=DB_A45938_livingGreenStl;  User Id=DB_A45938_livingGreenStl_admin;  Password=MilesIn2013!;",
   "RawDataSettings": {}
 }
