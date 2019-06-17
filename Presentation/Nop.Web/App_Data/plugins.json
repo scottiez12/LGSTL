@@ -17,7 +17,8 @@
     "Widgets.NivoSlider",
     "ExternalAuth.Facebook",
     "SevenSpikes.Core",
-    "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu"
+    "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu",
+    "Widgets.QuickMenu"
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [],

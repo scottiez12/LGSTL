@@ -171,7 +171,8 @@ label, label + * {
     z-index: 0;
     width: 100%;
     margin: 0 auto;
-    background: #8EB18C;
+    background: #F2EDE4;
+    /*background: #8EB18C;*/
     /*#81A442 green color based on the logo...*/
 }
 
@@ -1211,7 +1212,7 @@ label, label + * {
     /*background-color: #614635; dark brown*/
     text-align: center;
     color: #969696;
-    margin-top: 1%;
+    /*margin-top: 1%;*/
 }
 
 .footer-upper {
@@ -8086,7 +8087,7 @@ pre {
         text-align: center;
         /* dark brown background: #614635;*/
         background: #376234; /*dark green*/
-        margin-bottom: 17px;
+        /*margin-bottom: 17px;*/
     }
 
     .html-home-page .header-menu {
