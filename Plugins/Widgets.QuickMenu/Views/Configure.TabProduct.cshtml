@@ -1,0 +1,128 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Widgets.QuickMenu.Models.QuickMenuModel
+@using Nop.Web.Framework;
+@using Nop.Web.Framework.UI;
+
+<div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Categories_OverrideForStore" asp-input="Categories" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Categories" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Categories" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Categories.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlCategoriesWide">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="CategoriesWide_OverrideForStore" asp-input="CategoriesWide" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="CategoriesWide" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="CategoriesWide" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.CategoriesWide.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlCategories">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Categories_OrderId_OverrideForStore" asp-input="Categories_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Categories_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Categories_OrderId" />
+        </div>
+    </div>
+
+    <div class="form-group" id="pnlCategoriesPicture">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Categories_withPicture_OverrideForStore" asp-input="Categories_withPicture" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Categories_withPicture" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Categories_withPicture" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Categories_withPicture.hint")</em>
+        </div>
+    </div>
+
+    <div class="form-group" id="pnlCategoriesPictureSize">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Categories_PictureSize_OverrideForStore" asp-input="Categories_PictureSize" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Categories_PictureSize" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Categories_PictureSize" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Categories_PictureSize.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlCategoriesTopMenu">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="CategoriesTopMenu_OverrideForStore" asp-input="CategoriesTopMenu" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="CategoriesTopMenu" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="CategoriesTopMenu" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.CategoriesTopMenu.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Manufacturers_OverrideForStore" asp-input="Manufacturers" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Manufacturers" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Manufacturers" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Manufacturers.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlManufacturers">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Manufacturers_OrderId_OverrideForStore" asp-input="Manufacturers_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Manufacturers_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Manufacturers_OrderId" />
+        </div>
+    </div>
+    <div class="form-group" id="pnlManufacturersPicture">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Manufacturers_withPicture_OverrideForStore" asp-input="Manufacturers_withPicture" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Manufacturers_withPicture" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Manufacturers_withPicture" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Manufacturers_withPicture.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlManufacturersPictureSize">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Manufacturers_PictureSize_OverrideForStore" asp-input="Manufacturers_PictureSize" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Manufacturers_PictureSize" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Manufacturers_PictureSize" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Manufacturers_PictureSize.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="NewProductsLink_OverrideForStore" asp-input="NewProductsLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="NewProductsLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="NewProductsLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.NewProductsLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlNewProducts">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="NewProducts_OrderId_OverrideForStore" asp-input="NewProducts_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="NewProducts_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="NewProducts_OrderId" />
+        </div>
+    </div>
+</div>

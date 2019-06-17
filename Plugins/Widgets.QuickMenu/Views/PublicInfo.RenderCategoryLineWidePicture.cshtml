@@ -1,0 +1,26 @@
+﻿@model Nop.Plugin.Widgets.QuickMenu.Models.MenuCategoryModel
+@using Nop.Web.Framework.UI
+@using Nop.Plugin.Widgets.QuickMenu
+@using Nop.Plugin.Widgets.QuickMenu.Models
+
+@{
+    var category = Model;
+}
+
+@{
+
+    <div class="megacolimage">
+        <h3 class="title"><a class="title" style="border-bottom: 0px;"> @category.Name</a></h3>
+        <div>
+            <div style="float: left;padding: 15px 15px 0px 0px;"><a href="@(category.Url)"><img src="@(category.PictureUrl)" alt="" /></a></div>
+            <div style="float: left;">
+                <ul class="megacollink">
+                    @foreach (var subCategory in category.SubCategories)
+                    {
+                        <li><a href="@(subCategory.Url)">@subCategory.Name</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}

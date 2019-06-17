@@ -1,0 +1,216 @@
+﻿@{
+    Layout = "~/Plugins/Widgets.QuickMenu/Views/_ConfigurePluginWorkaround.cshtml";
+}
+@model Nop.Plugin.Widgets.QuickMenu.Models.QuickMenuModel
+@using Nop.Web.Framework;
+@using Nop.Web.Framework.UI;
+@await Component.InvokeAsync("StoreScopeConfiguration")
+
+@using (Html.BeginForm())
+{
+    <div class="content-header clearfix">
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                @T("Admin.Common.Save")
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="form-horizontal">
+            <div id="menusettings-edit" class="nav-tabs-custom">
+
+                <nop-tabs id="settings-edit">
+                    <nop-tab asp-name="tab-general" asp-title="@T("Plugins.Widgets.QuickMenu.General")" asp-default="true">@await Html.PartialAsync("Configure.TabGeneral.cshtml", Model)</nop-tab>
+                    <nop-tab asp-name="tab-Product" asp-title="@T("Plugins.Widgets.QuickMenu.Product")">@await Html.PartialAsync("Configure.TabProduct.cshtml", Model)</nop-tab>
+                    <nop-tab asp-name="tab-Topic" asp-title="@T("Plugins.Widgets.QuickMenu.Topic")">@await Html.PartialAsync("Configure.TabTopic.cshtml", Model)</nop-tab>
+                    <nop-tab asp-name="tab-Other" asp-title="@T("Plugins.Widgets.QuickMenu.Other")">@await Html.PartialAsync("Configure.TabOther.cshtml", Model)</nop-tab>
+                </nop-tabs>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            toggleHomePageLink();
+            toggleCategories();
+            toggleCategoriesPicture();
+            toggleManufacturers();
+            toggleManufacturersPicture();
+            toggleNewProducts();
+            toggleMyAccount();
+            toggleBlog();
+            toggleForum();
+            toggleTopic1();
+            toggleTopic2();
+            toggleTopic3();
+            toggleTopic4();
+            toggleContactUsLink();
+            toggleSearchLink();
+
+            $("#@Html.IdFor(model => model.HomePageLink)").change(toggleHomePageLink);
+            $("#@Html.IdFor(model => model.Categories)").change(toggleCategories);
+            $("#@Html.IdFor(model => model.Categories_withPicture)").change(toggleCategoriesPicture);
+            $("#@Html.IdFor(model => model.Manufacturers)").change(toggleManufacturers);
+            $("#@Html.IdFor(model => model.Manufacturers_withPicture)").change(toggleManufacturersPicture);
+            $("#@Html.IdFor(model => model.NewProductsLink)").change(toggleNewProducts);
+            $("#@Html.IdFor(model => model.MyAccountLink)").change(toggleMyAccount);
+            $("#@Html.IdFor(model => model.BlogLink)").change(toggleBlog);
+            $("#@Html.IdFor(model => model.ForumLink)").change(toggleForum);
+            $("#@Html.IdFor(model => model.TopicLink1)").change(toggleTopic1);
+            $("#@Html.IdFor(model => model.TopicLink2)").change(toggleTopic2);
+            $("#@Html.IdFor(model => model.TopicLink3)").change(toggleTopic3);
+            $("#@Html.IdFor(model => model.TopicLink4)").change(toggleTopic4);
+            $("#@Html.IdFor(model => model.ContactUsLink)").change(toggleContactUsLink);
+            $("#@Html.IdFor(model => model.SearchLink)").change(toggleSearchLink);
+
+            function toggleHomePageLink() {
+                if ($('#@Html.IdFor(model => model.HomePageLink)').is(':checked')) {
+                    $('#pnlHomePageLink').show();
+                } else {
+                    $('#pnlHomePageLink').hide();
+                }
+            }
+            function toggleContactUsLink() {
+                if ($('#@Html.IdFor(model => model.ContactUsLink)').is(':checked')) {
+                    $('#pnlContactUsLink').show();
+                } else {
+                    $('#pnlContactUsLink').hide();
+                }
+            }
+
+            function toggleSearchLink() {
+                if ($('#@Html.IdFor(model => model.SearchLink)').is(':checked')) {
+                    $('#pnlSearchLink').show();
+                } else {
+                    $('#pnlSearchLink').hide();
+                }
+            }
+
+            function toggleCategories() {
+                if ($('#@Html.IdFor(model => model.Categories)').is(':checked')) {
+                    $('#pnlCategories').show();
+                    $('#pnlCategoriesWide').show();
+                    $('#pnlCategoriesTopMenu').show();
+                    $('#pnlCategoriesPicture').show();
+                    toggleCategoriesPicture();
+                } else {
+                    $('#pnlCategories').hide();
+                    $('#pnlCategoriesWide').hide();
+                    $('#pnlCategoriesTopMenu').hide();
+                    $('#pnlCategoriesPicture').hide();
+                    $('#pnlCategoriesPictureSize').hide();
+                }
+            }
+
+            function toggleCategoriesPicture() {
+                if ($('#@Html.IdFor(model => model.Categories_withPicture)').is(':checked')) {
+                    $('#pnlCategoriesPictureSize').show();
+                } else {
+                    $('#pnlCategoriesPictureSize').hide();
+                }
+            }
+
+            function toggleManufacturers() {
+                if ($('#@Html.IdFor(model => model.Manufacturers)').is(':checked')) {
+                    $('#pnlManufacturers').show();
+                    $('#pnlManufacturersPicture').show();
+                    toggleManufacturersPicture();
+                } else {
+                    $('#pnlManufacturers').hide();
+                    $('#pnlManufacturersPicture').hide();
+                    $('#pnlManufacturersPictureSize').hide();
+                }
+            }
+            function toggleManufacturersPicture() {
+                if ($('#@Html.IdFor(model => model.Manufacturers_withPicture)').is(':checked')) {
+                    $('#pnlManufacturersPictureSize').show();
+                } else {
+                    $('#pnlManufacturersPictureSize').hide();
+                }
+            }
+
+            function toggleNewProducts() {
+                if ($('#@Html.IdFor(model => model.NewProductsLink)').is(':checked')) {
+                    $('#pnlNewProducts').show();
+                } else {
+                    $('#pnlNewProducts').hide();
+                }
+            }
+
+            function toggleMyAccount() {
+                if ($('#@Html.IdFor(model => model.MyAccountLink)').is(':checked')) {
+                    $('#pnlMyAccount').show();
+                } else {
+                    $('#pnlMyAccount').hide();
+                }
+            }
+
+            function toggleBlog() {
+                if ($('#@Html.IdFor(model => model.BlogLink)').is(':checked')) {
+                    $('#pnlBlogLink').show();
+                } else {
+                    $('#pnlBlogLink').hide();
+                }
+            }
+            function toggleForum() {
+                if ($('#@Html.IdFor(model => model.ForumLink)').is(':checked')) {
+                    $('#pnlForumLink').show();
+                } else {
+                    $('#pnlForumLink').hide();
+                }
+            }
+
+
+            function toggleTopic1() {
+                if ($('#@Html.IdFor(model => model.TopicLink1)').is(':checked')) {
+                    $('#pnlTopicLink1SystemName').show();
+                    $('#pnlTopicLink1OrderId').show();
+                    $('#pnlTopicLink1ContentLink').show();
+                } else {
+                    $('#pnlTopicLink1SystemName').hide();
+                    $('#pnlTopicLink1OrderId').hide();
+                    $('#pnlTopicLink1ContentLink').hide();
+                }
+            }
+            function toggleTopic2() {
+                if ($('#@Html.IdFor(model => model.TopicLink2)').is(':checked')) {
+                    $('#pnlTopicLink2SystemName').show();
+                    $('#pnlTopicLink2OrderId').show();
+                    $('#pnlTopicLink2ContentLink').show();
+                } else {
+                    $('#pnlTopicLink2SystemName').hide();
+                    $('#pnlTopicLink2OrderId').hide();
+                    $('#pnlTopicLink2ContentLink').hide();
+                }
+            }
+            function toggleTopic3() {
+                if ($('#@Html.IdFor(model => model.TopicLink3)').is(':checked')) {
+                    $('#pnlTopicLink3SystemName').show();
+                    $('#pnlTopicLink3OrderId').show();
+                    $('#pnlTopicLink3ContentLink').show();
+                } else {
+                    $('#pnlTopicLink3SystemName').hide();
+                    $('#pnlTopicLink3OrderId').hide();
+                    $('#pnlTopicLink3ContentLink').hide();
+                }
+            }
+            function toggleTopic4() {
+                if ($('#@Html.IdFor(model => model.TopicLink4)').is(':checked')) {
+                    $('#pnlTopicLink4SystemName').show();
+                    $('#pnlTopicLink4OrderId').show();
+                    $('#pnlTopicLink4ContentLink').show();
+                } else {
+                    $('#pnlTopicLink4SystemName').hide();
+                    $('#pnlTopicLink4OrderId').hide();
+                    $('#pnlTopicLink4ContentLink').hide();
+                }
+            }
+
+        });
+    </script>
+}

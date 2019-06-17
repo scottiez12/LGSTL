@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Widgets.QuickMenu.Models.QuickMenuModel
+@using Nop.Web.Framework;
+@using Nop.Web.Framework.UI;
+
+<div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="SearchLink_OverrideForStore" asp-input="SearchLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="SearchLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="SearchLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.SearchLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlSearchLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Search_OrderId_OverrideForStore" asp-input="Search_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Search_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Search_OrderId" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="ContactUsLink_OverrideForStore" asp-input="ContactUsLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="ContactUsLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="ContactUsLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.ContactUsLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlContactUsLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="ContactUs_OrderId_OverrideForStore" asp-input="ContactUs_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="ContactUs_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="ContactUs_OrderId" />
+        </div>
+    </div>
+
+</div>

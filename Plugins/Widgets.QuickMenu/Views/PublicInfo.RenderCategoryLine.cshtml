@@ -1,0 +1,45 @@
+﻿@model Nop.Plugin.Widgets.QuickMenu.Models.MenuCategoryModel
+@using Nop.Web.Framework.UI
+@using Nop.Plugin.Widgets.QuickMenu
+@using Nop.Plugin.Widgets.QuickMenu.Models
+
+@{
+    var category = Model;
+}
+
+@{
+    <li>
+
+        <a href="@category.Url">@category.Name</a>
+        @{
+            //subcategories
+            var subCategories = category.responsiveMobileMenu ?
+                //responsive (all categories)
+                category.SubCategories :
+                //standard design (only categories with "IncludeInTopMenu")
+                category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+
+            var levelClass = "wsmenu-submenu";
+
+            for (int i = 0; i <= category.level; i++)
+            {
+                levelClass = levelClass + "-sub";
+
+            }
+            if (subCategories.Count > 0)
+            {
+
+                <ul class="@levelClass">
+                    @foreach (var subCategory in subCategories)
+                    {
+                        category.level = category.level + 1;
+                        category.responsiveMobileMenu = category.responsiveMobileMenu;
+                        @await Html.PartialAsync("PublicInfo.RenderCategoryLine.cshtml", subCategory)
+                    }
+                </ul>
+            }
+        }
+    </li>
+}
+
+

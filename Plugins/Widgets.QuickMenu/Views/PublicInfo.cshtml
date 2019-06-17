@@ -1,0 +1,102 @@
+@model Nop.Plugin.Widgets.QuickMenu.Models.MenuModel
+@{
+    Layout = "";
+
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Plugins/Widgets.QuickMenu/Content/js/webslidemenu.js");
+    Html.AddCssFileParts("~/Plugins/Widgets.QuickMenu/Content/css/color-theme.css");
+    if (Model.OverrideColor)
+    {
+        Html.AddCssFileParts(string.Format("~/Plugins/Widgets.QuickMenu/Content/css/nopCommerce/{0}.css", Model.Color.Split('-')[0].ToString()));
+    }
+    if (Model.EnabledClick)
+    {
+        Html.AddCssFileParts("~/Plugins/Widgets.QuickMenu/Content/css/webslidemenu.css");
+    }
+    else
+    {
+        Html.AddCssFileParts("~/Plugins/Widgets.QuickMenu/Content/css/webslidemenu2.css");
+    }
+    Html.AddCssFileParts("~/Plugins/Widgets.QuickMenu/Content/font-awesome/css/font-awesome.min.css");
+}
+@using Nop.Web.Framework.UI
+@using Nop.Plugin.Widgets.QuickMenu
+@using Nop.Plugin.Widgets.QuickMenu.Models
+
+@if (Model.EnabledClick)
+{
+    <script asp-location="Footer">
+        var removeClass = window.matchMedia("screen and (min-width: 781px)")
+        $(window).on("load", function (e) {
+            $('.wsmenu-list > li > a').on('click', function () {
+                if (!$(this).parents().hasClass('onclickopen')) {
+                    $('.wsmenu-list > li').removeClass('onclickopen');
+                }
+                $(this).parent().addClass('onclickopen');
+                removeClass = false;
+            });
+
+            $('.wsmenu-submenu > li > a').on('click', function () {
+                if (!$(this).parents().hasClass('onclickopen02')) {
+                    $('.wsmenu-submenu > li > a').removeClass('onclickopen02');
+                }
+                $(this).parent().addClass('onclickopen02');
+                removeClass = false;
+            });
+
+            $('.wsmenu-submenu-sub > li > a').on('click', function () {
+                if (!$(this).parents().hasClass('onclickopen03')) {
+                    $('.wsmenu-submenu-sub > li > a').removeClass('onclickopen03');
+                }
+                $(this).parent().addClass('onclickopen03');
+                removeClass = false;
+            });
+
+
+            $("body").click(function () {
+                if (removeClass) {
+                    $(".wsmenu-list > li").removeClass('onclickopen');
+                    $(".wsmenu-submenu > li").removeClass('onclickopen02');
+                    $(".wsmenu-submenu-sub > li").removeClass('onclickopen03');
+                }
+                removeClass = true;
+            });
+
+        });
+    </script>
+}
+
+
+<div class="wsmenucontent overlapblackbg"></div>
+<div class="wsmenuexpandermain slideRight">
+    <a id="navToggle" class="animated-arrow slideLeft"><span></span></a>
+</div>
+
+<nav class="wsmenu @(Model.Color) slideLeft clearfix">
+    <ul class="mobile-sub wsmenu-list">
+        @await Html.PartialAsync("PublicInfo.RenderMenu.cshtml")
+    </ul>
+</nav>
+
+@if (Model.StandardMobileView)
+{
+    <style>
+        #navToggle {
+            display: none !important;
+        }
+    </style>
+    <div class="menu-toggle">@T("Menu")</div>
+    <ul class="top-menu mobile">
+        @await Html.PartialAsync("PublicInfo.RenderMenu2.cshtml")
+    </ul>
+
+    <script asp-location="Footer">
+        $(document).ready(function () {
+            $('.menu-toggle').click(function () {
+                $(this).siblings('.top-menu.mobile').slideToggle('slow');
+            });
+            $('.top-menu.mobile .sublist-toggle').click(function () {
+                $(this).siblings('.sublist').slideToggle('slow');
+            });
+        });
+    </script>
+}

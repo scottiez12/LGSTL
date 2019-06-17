@@ -1,0 +1,295 @@
+﻿@model Nop.Plugin.Widgets.QuickMenu.Models.MenuModel
+@using Nop.Web.Framework.UI
+@using Nop.Plugin.Widgets.QuickMenu
+@using Nop.Plugin.Widgets.QuickMenu.Models
+
+
+@{
+    foreach (var item in Model.MainItems.OrderBy(x => x.Order))
+    {
+        if (item.Typ == SiteCodeType.Homepage)
+        {
+            <li>
+                <a href="@(item.Url)" class="active">
+                    <i class="fa fa-home"></i><span class="hometext">@(item.Name)</span>
+                </a>
+            </li>
+        }
+        if (item.Typ == SiteCodeType.Blog)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.Forum)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.MyAccount)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.NewProducts)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.ContactUs)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.Search)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.TopicUrl)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.TopicContent)
+        {
+            <li>
+                <a href="#">@(item.Name)</a>
+                <div class="megamenu clearfix">
+                    <div class="typography-text clearfix">
+                        <div class="typographydiv">
+                            <h3 class="title">@(item.Name)</h3>
+                            @Html.Raw(item.Content)
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+        if (item.Typ == SiteCodeType.Manufacturers)
+        {
+            <li>
+                <a href="#">@(item.Name)</a>
+                <ul class="wsmenu-submenu">
+                    @foreach (var manuf in item.ManufacturerItems)
+                    {
+                        <li><a href="@(manuf.Url)"><i class="fa fa-angle-right"></i>@(manuf.Name)</a></li>
+                    }
+                </ul>
+            </li>
+        }
+        if (item.Typ == SiteCodeType.ManufacturersPicture)
+        {
+            <li>
+                <a href="#">@(item.Name) </a>
+
+                <div class="megamenu clearfix">
+                    @foreach (var manuf in item.ManufacturerItems)
+                    {
+                        <div class="megacolimage" style="width:23%;">
+                            <h3 class="title">@(manuf.Name)</h3>
+                            <div><a href="@(manuf.Url)"><img src="@(manuf.PictureUrl)" alt="" /></a></div>
+                        </div>
+
+                    }
+                </div>
+            </li>
+        }
+
+
+        if (item.Typ == SiteCodeType.Categories)
+        {
+            if (!(Model.CategoriesTopMenu))
+            {
+                <li>
+                    <a href="#">@(item.Name)</a>
+
+                    @{
+                        var rootCategories = item.MenuCategoryItems.ToList();
+                    }
+
+                    <ul class="wsmenu-submenu" id="ulMobile">
+                        @foreach (var category in rootCategories)
+                        {
+                            category.level = 0;
+                            category.responsiveMobileMenu = true;
+                            @await Html.PartialAsync("PublicInfo.RenderCategoryLine.cshtml", category)
+                        }
+                    </ul>
+
+
+                    @{
+                        var rootCategoriesTopMenu = item.MenuCategoryItems.Where(x => x.IncludeInTopMenu).ToList();
+                    }
+
+                    <ul class="wsmenu-submenu" id="ulnoMobile">
+                        @foreach (var category in rootCategoriesTopMenu)
+                        {
+                            category.level = 0;
+                            category.responsiveMobileMenu = false;
+                            @await Html.PartialAsync("PublicInfo.RenderCategoryLine.cshtml", category)
+                        }
+                    </ul>
+
+
+                </li>
+                        }
+                        else
+                        {
+                            var rootCategoriesTopMenu = item.MenuCategoryItems.Where(x => x.IncludeInTopMenu).ToList();
+                            foreach (var category in rootCategoriesTopMenu.Where(x => x.ParentCategoryId == 0))
+                            {
+                                <li>
+                                    <a href="@category.Url">@(category.Name)</a>
+                                    @if (category.SubCategories.Count > 0)
+                                    {
+                                        <ul class="wsmenu-submenu" id="ulnoMobile">
+                                            @foreach (var _item in category.SubCategories)
+                                            {
+                                                category.level = 0;
+                                                category.responsiveMobileMenu = false;
+                                                @await Html.PartialAsync("PublicInfo.RenderCategoryLine.cshtml", _item)
+                                            }
+                                        </ul>
+                                    }
+                                </li>
+                                }
+
+                            }
+                        }
+                        if (item.Typ == SiteCodeType.CategoriesWide)
+                        {
+                            if (!(Model.CategoriesTopMenu))
+                            {
+                                <li>
+
+                                    <a href="#">@(item.Name)</a>
+                                    @{
+                                        var rootCategories = item.MenuCategoryItems.ToList();
+                                    }
+
+                                    <ul class="wsmenu-submenu" id="ulMobile">
+                                        @foreach (var category in rootCategories)
+                                        {
+                                            category.level = 0;
+                                            category.responsiveMobileMenu = true;
+                                            @await Html.PartialAsync("PublicInfo.RenderCategoryLine.cshtml", category)
+                                        }
+                                    </ul>
+
+
+
+                                    @{
+                                        var rootCategoriesTopMenu = item.MenuCategoryItems.Where(x => x.IncludeInTopMenu).ToList();
+                                    }
+                                    <div class="megamenu clearfix" id="ulnoMobile">
+                                        @foreach (var category in rootCategoriesTopMenu)
+                                        {
+                                            category.level = 0;
+                                            category.responsiveMobileMenu = false;
+                                            @await Html.PartialAsync("PublicInfo.RenderCategoryLineWide.cshtml", category)
+                                        }
+                                    </div>
+
+                                </li>
+                                        }
+                                        else
+                                        {
+                                            var rootCategoriesTopMenu = item.MenuCategoryItems.Where(x => x.IncludeInTopMenu).ToList();
+                                            foreach (var category in rootCategoriesTopMenu.Where(x => x.ParentCategoryId == 0))
+                                            {
+                                                <li>
+                                                    <a href="@category.Url">@(category.Name)</a>
+                                                    @if (category.SubCategories.Count > 0)
+                                                    {
+
+
+                                                        <ul class="wsmenu-submenu" id="ulMobile">
+                                                            @foreach (var _item in category.SubCategories)
+                                                            {
+                                                                category.level = 0;
+                                                                category.responsiveMobileMenu = false;
+                                                                @await Html.PartialAsync("PublicInfo.RenderCategoryLineWideMob.cshtml", _item)
+                                                            }
+                                                        </ul>
+
+
+                                                        <div class="megamenu clearfix" id="ulnoMobile">
+
+                                                            @foreach (var _item in category.SubCategories)
+                                                            {
+                                                                category.level = 0;
+                                                                category.responsiveMobileMenu = false;
+                                                                @await Html.PartialAsync("PublicInfo.RenderCategoryLineWide.cshtml", _item)
+                                                            }
+                                                        </div>
+
+
+                                                    }
+                                                </li>
+                                                }
+                                            }
+                                        }
+                                        if (item.Typ == SiteCodeType.CategoriesPicture)
+                                        {
+
+                                            if (!(Model.CategoriesTopMenu))
+                                            {
+                                                <li>
+
+                                                    <a href="#">@(item.Name)</a>
+                                                    @{
+                                                        var rootCategories = item.MenuCategoryItems.ToList();
+                                                    }
+
+                                                    <ul class="wsmenu-submenu" id="ulMobile">
+                                                        @foreach (var category in rootCategories)
+                                                        {
+                                                            category.level = 0;
+                                                            category.responsiveMobileMenu = true;
+                                                            @await Html.PartialAsync("PublicInfo.RenderCategoryLine.cshtml", category)
+                                                        }
+                                                    </ul>
+
+                                                    @{
+                                                        var rootCategoriesTopMenu = item.MenuCategoryItems.Where(x => x.IncludeInTopMenu).ToList();
+                                                    }
+                                                    <div class="megamenu clearfix" id="ulnoMobile">
+                                                        @foreach (var category in rootCategoriesTopMenu)
+                                                        {
+                                                            category.level = 0;
+                                                            category.responsiveMobileMenu = false;
+                                                            @await Html.PartialAsync("PublicInfo.RenderCategoryLineWidePicture.cshtml", category)
+                                                        }
+                                                    </div>
+
+                                                </li>
+                                                        }
+                                                        else
+                                                        {
+                                                            var rootCategoriesTopMenu = item.MenuCategoryItems.Where(x => x.IncludeInTopMenu).ToList();
+                                                            foreach (var category in rootCategoriesTopMenu.Where(x => x.ParentCategoryId == 0))
+                                                            {
+                                                                <li>
+                                                                    <a href="@category.Url">@(category.Name)</a>
+                                                                    @if (category.SubCategories.Count > 0)
+                                                                    {
+
+                                                                        <ul class="wsmenu-submenu" id="ulMobile">
+
+                                                                            @foreach (var _item in category.SubCategories)
+                                                                            {
+                                                                                category.level = 0;
+                                                                                category.responsiveMobileMenu = false;
+                                                                                @await Html.PartialAsync("PublicInfo.RenderCategoryLineWideMob.cshtml", _item)
+                                                                            }
+                                                                        </ul>
+
+                                                                        <div class="megamenu clearfix" id="ulnoMobile">
+
+                                                                            @foreach (var _item in category.SubCategories)
+                                                                            {
+                                                                                category.level = 0;
+                                                                                category.responsiveMobileMenu = false;
+                                                                                @await Html.PartialAsync("PublicInfo.RenderCategoryLineWidePicture.cshtml", _item)
+                                                                            }
+                                                                        </div>
+                                                                    }
+                                                                </li>
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        }
+}

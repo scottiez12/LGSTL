@@ -1,0 +1,33 @@
+﻿@model Nop.Plugin.Widgets.QuickMenu.Models.MenuCategoryModel
+@using Nop.Web.Framework.UI
+@using Nop.Plugin.Widgets.QuickMenu
+@using Nop.Plugin.Widgets.QuickMenu.Models
+
+@{
+    var category = Model;
+}
+
+<li>
+    <a href="@category.Url">@category.Name</a>
+
+    @{
+        var levelClass = "";
+        if (category.level == 0)
+        {
+            levelClass = "firstLevel";
+            <div class="top-menu-triangle"></div>
+        }
+        if (category.SubCategories.Count > 0)
+        {
+            <span class="expand">&nbsp;</span>
+                <div class="sublist-toggle"></div>
+                <ul class="sublist @levelClass">
+                    @foreach (var subCategory in category.SubCategories)
+                    {
+                        category.level = (category.level + 1);
+                        @await Html.PartialAsync("PublicInfo.RenderMenu2CategoryLine.cshtml", subCategory)
+                    }
+                </ul>
+        }
+    }
+</li>

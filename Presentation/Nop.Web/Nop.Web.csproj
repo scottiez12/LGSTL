@@ -40,6 +40,11 @@
 
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <None Remove="Themes\Flexo\Content\images\lgstlresizetest.png" />
+    <None Remove="Themes\Flexo\Content\images\logo-light.png" />
+    <None Remove="Themes\Flexo\Content\images\logo.png" />
+    <None Remove="Themes\Flexo\Content\images\LogoLong.png" />
+    <None Remove="Themes\Flexo\Content\images\LogoStacked.png" />
     <None Remove="Themes\LivingGreenStL\Content\css\print.css" />
     <None Remove="Themes\LivingGreenStL\Content\css\styles.css" />
     <None Remove="Themes\LivingGreenStL\Content\css\styles.rtl.css" />

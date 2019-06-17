@@ -1,7 +1,7 @@
 ﻿@model TopicModel
 @if (Model.IsPasswordProtected)
 {
-<script asp-location="Footer">
+    <script asp-location="Footer">
         $(document).ready(function () {
             $('#button-password-@Model.Id').on('click', function() {
                 var postData = {
@@ -41,16 +41,16 @@
             $('#ph-topic-@Model.Id').hide();
             $('#ph-password-@Model.Id #password-@Model.Id').select().focus();
         });
-</script>
+    </script>
     <div class="topic-password" id="ph-password-@Model.Id">
         <form asp-route="TopicAuthenticate" method="post">
-            <input asp-for="Id" id="topic-@Model.Id" type="hidden"/>
+            <input asp-for="Id" id="topic-@Model.Id" type="hidden" />
             <div class="enter-password-title">
                 @T("Topic.EnterPassword")
             </div>
             <div class="enter-password-form">
-                <input name="password" type="password" id="password-@(Model.Id)"/>
-                <input type="submit" id="button-password-@Model.Id" value="@T("Topic.Button")" class="button-1 topic-password-button"/>
+                <input name="password" type="password" id="password-@(Model.Id)" />
+                <input type="submit" id="button-password-@Model.Id" value="@T("Topic.Button")" class="button-1 topic-password-button" />
             </div>
             <div class="password-error" id="password-error-@Model.Id" style="display: none;"></div>
         </form>
@@ -73,8 +73,32 @@ else
                 <h2>@Model.Title</h2>
             </div>
         }
+        @*<div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="303" height="288" id="gmap_canvas" src="https://maps.google.com/maps?q=8976%20Watson%20Road%20Suite%20A&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <a href="https://www.pureblack.de"></a>
+            </div>
+            <style>
+                .mapouter {
+                    float: right;
+                    position: relative;
+                    text-align: right;
+                    height: 288px;
+                    width: 303px;
+                }
+
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 288px;
+                    width: 303px;
+                }
+            </style>
+        </div>*@
+
         <div class="topic-block-body">
             @Html.Raw(Model.Body)
         </div>
+
     </div>
 }

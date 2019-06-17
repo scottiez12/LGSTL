@@ -1,0 +1,167 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Widgets.QuickMenu.Models.QuickMenuModel
+@using Nop.Web.Framework;
+@using Nop.Web.Framework.UI;
+
+<div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink1_OverrideForStore" asp-input="TopicLink1" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink1" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink1" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink1.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink1SystemName">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink1_SystemName_OverrideForStore" asp-input="TopicLink1_SystemName" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink1_SystemName" />
+        </div>
+        <div class="col-md-9">
+            <select asp-for="TopicLink1_SystemName" asp-items="Model.Topics"></select>
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink1_SystemName.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink1OrderId">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink1_OrderId_OverrideForStore" asp-input="TopicLink1_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink1_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink1_OrderId" />
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink1ContentLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink1ContentLink_OverrideForStore" asp-input="TopicLink1ContentLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink1ContentLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink1ContentLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink1ContentLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink2_OverrideForStore" asp-input="TopicLink2" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink2" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink2" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink2.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink2SystemName">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink2_SystemName_OverrideForStore" asp-input="TopicLink2_SystemName" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink2_SystemName" />
+        </div>
+        <div class="col-md-9">
+            <select asp-for="TopicLink2_SystemName" asp-items="Model.Topics"></select>
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink2_SystemName.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink2OrderId">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink2_OrderId_OverrideForStore" asp-input="TopicLink2_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink2_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink2_OrderId" />
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink2ContentLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink2ContentLink_OverrideForStore" asp-input="TopicLink2ContentLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink2ContentLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink2ContentLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink2ContentLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink3_OverrideForStore" asp-input="TopicLink3" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink3" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink3" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink3.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink3SystemName">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink3_SystemName_OverrideForStore" asp-input="TopicLink3_SystemName" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink3_SystemName" />
+        </div>
+        <div class="col-md-9">
+            <select asp-for="TopicLink3_SystemName" asp-items="Model.Topics"></select>
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink3_SystemName.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink3OrderId">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink3_OrderId_OverrideForStore" asp-input="TopicLink3_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink3_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink3_OrderId" />
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink3ContentLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink3ContentLink_OverrideForStore" asp-input="TopicLink3ContentLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink3ContentLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink3ContentLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink3ContentLink.hint")</em>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink4_OverrideForStore" asp-input="TopicLink4" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink4" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink4" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink4.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink4SystemName">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink4_SystemName_OverrideForStore" asp-input="TopicLink4_SystemName" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink4_SystemName" />
+        </div>
+        <div class="col-md-9">
+            <select asp-for="TopicLink4_SystemName" asp-items="Model.Topics"></select>
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink3_SystemName.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink4OrderId">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink4_OrderId_OverrideForStore" asp-input="TopicLink4_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink4_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink4_OrderId" />
+        </div>
+    </div>
+    <div class="form-group" id="pnlTopicLink4ContentLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="TopicLink4ContentLink_OverrideForStore" asp-input="TopicLink4ContentLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="TopicLink4ContentLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="TopicLink4ContentLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.TopicLink4ContentLink.hint")</em>
+        </div>
+    </div>
+
+</div>

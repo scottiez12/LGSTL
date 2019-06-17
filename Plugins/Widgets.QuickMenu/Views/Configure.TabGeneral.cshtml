@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Widgets.QuickMenu.Models.QuickMenuModel
+@using Nop.Web.Framework;
+@using Nop.Web.Framework.UI;
+
+<div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Enabled_OverrideForStore" asp-input="Enabled" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Enabled" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Enabled" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.Enabled.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="EnabledClick_OverrideForStore" asp-input="EnabledClick" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="EnabledClick" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="EnabledClick" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.EnabledClick.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="MenuColor_OverrideForStore" asp-input="MenuColor" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="MenuColor" />
+        </div>
+        <div class="col-md-9">
+            <nop-select asp-for="MenuColor" asp-items="Model.MenuColors" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.MenuColor.hint")</em>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="OverrideColor_OverrideForStore" asp-input="OverrideColor" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="OverrideColor" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="OverrideColor" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="StandardMobileView_OverrideForStore" asp-input="StandardMobileView" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="StandardMobileView" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="StandardMobileView" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="HomePageLink_OverrideForStore" asp-input="HomePageLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="HomePageLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="HomePageLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.HomePageLink.hint")</em>
+        </div>
+    </div>
+
+    <div class="form-group" id="pnlHomePageLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="HomePageLink_OrderId_OverrideForStore" asp-input="HomePageLink_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="HomePageLink_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="HomePageLink_OrderId" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="MyAccountLink_OverrideForStore" asp-input="MyAccountLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="MyAccountLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="MyAccountLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.MyAccountLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlMyAccount">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="MyAccount_OrderId_OverrideForStore" asp-input="MyAccount_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="MyAccount_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="MyAccount_OrderId" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="BlogLink_OverrideForStore" asp-input="BlogLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="BlogLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="BlogLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.BlogLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlBlogLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Blog_OrderId_OverrideForStore" asp-input="Blog_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Blog_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Blog_OrderId" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="ForumLink_OverrideForStore" asp-input="ForumLink" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="ForumLink" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="ForumLink" />
+            <br /><em>@T("Plugins.Widgets.QuickMenu.ForumLink.hint")</em>
+        </div>
+    </div>
+    <div class="form-group" id="pnlForumLink">
+        <div class="col-md-3">
+            <nop-override-store-checkbox asp-for="Forum_OrderId_OverrideForStore" asp-input="Forum_OrderId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+            <nop-label asp-for="Forum_OrderId" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Forum_OrderId" />
+        </div>
+    </div>
+</div>

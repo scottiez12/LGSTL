@@ -1,0 +1,8 @@
+﻿Group: Widgets
+FriendlyName: Quick Menu
+SystemName: Widgets.QuickMenu
+Version: 1.11
+SupportedVersions: 3.90
+Author: nop4you
+DisplayOrder: 1
+FileName: Nop.Plugin.Widgets.QuickMenu.dll

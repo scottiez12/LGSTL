@@ -1,0 +1,81 @@
+﻿@model Nop.Plugin.Widgets.QuickMenu.Models.MenuModel
+@using Nop.Web.Framework.UI
+@using Nop.Plugin.Widgets.QuickMenu
+@using Nop.Plugin.Widgets.QuickMenu.Models
+
+
+
+
+@{
+
+    foreach (var item in Model.MainItems.OrderBy(x => x.Order))
+    {
+        if (item.Typ == SiteCodeType.Homepage)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.Blog)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.Forum)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.MyAccount)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.NewProducts)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.ContactUs)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.Search)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.TopicUrl)
+        {
+            <li><a href="@(item.Url)">@(item.Name)</a></li>
+        }
+        if (item.Typ == SiteCodeType.Manufacturers || item.Typ == SiteCodeType.ManufacturersPicture)
+        {
+            <li>
+                <a>@(item.Name)</a>
+                <div class="sublist-toggle"></div>
+                <ul class="sublist 0">
+                    @foreach (var manuf in item.ManufacturerItems)
+                    {
+                        <li><a href="@(manuf.Url)">@(manuf.Name)</a></li>
+                    }
+                </ul>
+            </li>
+        }
+        if (item.Typ == SiteCodeType.Categories || item.Typ == SiteCodeType.CategoriesPicture || item.Typ == SiteCodeType.CategoriesWide)
+        {
+            <li>
+                <a>@(item.Name)</a>
+                <div class="sublist-toggle"></div>
+                @{
+                    var rootCategoriesTopMenu = item.MenuCategoryItems.ToList();
+                }
+
+
+
+                <ul class="sublist 0">
+                    @foreach (var category in rootCategoriesTopMenu)
+                    {
+                        category.level = 0;
+                        @await Html.PartialAsync("PublicInfo.RenderMenu2CategoryLine.cshtml", category)
+                    }
+                </ul>
+
+
+            </li>
+                        }
+                    }
+}
