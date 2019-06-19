@@ -3,9 +3,14 @@
   "FriendlyName": "Quick Menu",
   "SystemName": "Widgets.QuickMenu",
   "Version": "4.20.01",
-  "SupportedVersions": [ "4.20" ],
+  "SupportedVersions": [
+    "4.20"
+  ],
   "Author": "nop4you.com",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Widgets.QuickMenu.dll",
-  "Description": "Quick menu."
+  "Description": "Quick menu.",
+  "LimitedToStores": [],
+  "LimitedToCustomerRoles": [],
+  "DependsOnSystemNames": null
 }

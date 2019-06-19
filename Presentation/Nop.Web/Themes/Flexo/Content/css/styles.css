@@ -212,9 +212,10 @@ label, label + * {
 }
 
     .page-title h1 {
-        font-size: 20px;
+        font-size: 32px;
         font-weight: 700;
         letter-spacing: 0.05em;
+        text-align: center;
     }
 
     .page:after,
@@ -863,7 +864,8 @@ label, label + * {
 
 
 .admin-header-links {
-    background-color: #333;
+    background-color: #92AF63;
+    /*background-color: #333;*/
     text-align: center;
     color: #eee;
 }
@@ -1027,7 +1029,7 @@ label, label + * {
 
     .header-links li {
         display: inline-block;
-        margin: 0 10px;
+        /*margin: 0 10px;*/
     }
 
     .header-links span,
@@ -4352,7 +4354,8 @@ label, label + * {
         min-width: 180px;
         margin: 0px 0px 5px 0px;
         border: none;
-        background-color: #000;
+        background-color: #376234;
+        /*background-color: #000;*/
         padding: 10px 20px;
         font-size: 14px;
         width: 100%;
@@ -4365,11 +4368,13 @@ label, label + * {
 
         .shopping-cart-page .common-buttons input:hover {
             background-color: #fff;
-            color: #000;
+            color: #376234;
+            /*color: #000;*/
         }
 
         .shopping-cart-page .common-buttons input:first-child {
-            background-color: #000;
+            background-color: #376234;
+            /*background-color: #000;*/
         }
 
             .shopping-cart-page .common-buttons input:first-child:hover {
@@ -4521,7 +4526,8 @@ label, label + * {
     display: inline-block;
     width: 100%;
     border: none;
-    background-color: #000;
+    background-color: #376234;
+    /*background-color: #000;*/
     padding: 10px 20px;
     font-size: 14px;
     color: #fff;
@@ -4532,8 +4538,10 @@ label, label + * {
 }
 
     .cart-footer .checkout-button:hover {
-        background-color: #e95144;
-        border-color: #e95144
+        background-color: #fff;
+        border-color:#000;
+        color: #000;
+
     }
 
 .cart-footer .addon-buttons {
@@ -4577,7 +4585,8 @@ label, label + * {
         border: none;
         background-color: #fff;
         padding: 10px 15px;
-        color: #000;
+        color: #376234;
+        /*color: #000;*/
         border: 2px #000000 solid;
         text-transform: uppercase;
         font-size: 12px;
@@ -8081,8 +8090,9 @@ pre {
     .header-menu {
         position: relative;
         z-index: 5;
+        margin-bottom:0;
         width: 100%;
-        margin: 0 auto 15px;
+        margin: 0 auto 0;
         padding: 0px 0;
         text-align: center;
         /* dark brown background: #614635;*/
@@ -8364,6 +8374,7 @@ pre {
         }
 
         .block a.product-picture {
+            overflow-x: hidden;
             display: inline-block;
             position: relative;
             width: 30%;
@@ -9142,7 +9153,8 @@ body .theme-custom {
         }
 
 #topcartlink a.ico-cart .cart-qty {
-    background: #ffe5e5;
+    background: #CAE596;
+    /*background: #ffe5e5;*/
     color: #000;
     width: 22px;
     height: 22px;
@@ -9689,7 +9701,8 @@ body .login-page {
 }
 
 .mini-shopping-cart .buttons .cart-button {
-    background: #000;
+    background: #376234;
+    /*background: #000;*/
     color: #fff;
     font-size: 12px;
     text-transform: uppercase;
@@ -9992,7 +10005,8 @@ label {
     }
 
 .header-links .ico-wishlist .wishlist-qty {
-    background: #ffe5e5;
+    background: #CAE596;
+    /*background: #ffe5e5;*/
     color: #000;
     width: 22px;
     height: 22px;
@@ -10281,7 +10295,8 @@ label {
             }
 
             .headerfixed #topcartlink a span.cart-qty {
-                background-color: #f02121;
+                background-color: #92AF63;
+                /*background-color: #f02121;*/
                 color: #fff;
                 position: absolute;
                 top: 4px;
@@ -10420,7 +10435,8 @@ label {
     .header-linksmobile > ul > li {
         width: 25%;
         float: left;
-        background-color: #000;
+        background-color: #376234;
+        /*background-color: #000;*/
         border-left: 1px solid #868686;
         height: 50px;
         line-height: 50px;
@@ -10616,7 +10632,7 @@ label {
             height: 100%;
             overflow: auto;
             z-index: 9999999;
-            border-right: 1px #e5e5e5 solid;
+            /*border-right: 1px #e5e5e5 solid;*/
             transition-duration: 0.3s
         }
 
@@ -10646,7 +10662,7 @@ label {
 
     .header-menu > ul > li {
         background-color: #fff;
-        border-bottom: 1px solid #e5e5e5;
+        /*border-bottom: 1px solid #e5e5e5;*/
     }
 
         .header-menu > ul > li > a {
@@ -10656,6 +10672,7 @@ label {
             font-weight: bold;
             min-height: inherit;
             text-transform: uppercase;
+            background-color: #F2EDE4;
         }
 
             .header-menu > ul > li > a:hover {
