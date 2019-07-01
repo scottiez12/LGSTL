@@ -15,10 +15,11 @@
     "Tax.FixedOrByCountryStateZip",
     "Widgets.GoogleAnalytics",
     "Widgets.NivoSlider",
-    "ExternalAuth.Facebook",
     "SevenSpikes.Core",
     "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu",
-    "Widgets.QuickMenu"
+    "Widgets.QuickMenu",
+    "ExternalAuth",
+    "Widgets.StoreLocator"
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [],

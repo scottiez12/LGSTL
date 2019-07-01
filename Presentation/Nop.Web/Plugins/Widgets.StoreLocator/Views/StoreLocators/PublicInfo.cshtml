@@ -1,0 +1,277 @@
+﻿@model IEnumerable<Nop.Plugin.Widgets.StoreLocator.Models.StoreLocatorModel>
+@using Nop.Web.Framework;
+@using Nop.Web.Framework.UI
+@using System.Configuration;
+
+@{
+    Html.AppendCssFileParts("~/Plugins/Widgets.StoreLocator/Content/style.css");
+    var storeSettings = Nop.Core.Infrastructure.EngineContext.Current.Resolve<Nop.Plugin.Widgets.StoreLocator.StoreLocatorSettings>();
+    Html.AddHeadCustomParts("<meta name=\"author\" content=\"nop4you.com\">");
+
+    if (storeSettings.Page)
+    {
+        Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    }
+    else
+    {
+        Layout = "";
+    }
+
+}
+
+
+
+<script asp-location="Footer">
+
+    var latitude = @(storeSettings.defaultLat);
+    var longitude = @(storeSettings.defaultLng);
+    var infoPoint = '@Html.Raw(storeSettings.InfoPoint)';
+    var infoWindowPoint = '@Html.Raw(storeSettings.InfoWindowPoint)';
+    var showInfoPoints = '@(storeSettings.ShowInfoPoints)';
+    var loadCityUrl = '@Url.RouteUrl("Plugin.Widgets.StoreLocator.LoadByCity")';
+    var loadStoreUrl = '@Url.RouteUrl("Plugin.Widgets.StoreLocator.LoadStoreData")';
+
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: { lat: latitude, lng: longitude },
+            zoom: @(storeSettings.defaultGlobalZoom),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            marker: true
+        });
+    }
+
+    function initPoints(location, city, zoom, latitude, longitude) {
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: { lat: latitude, lng: longitude },
+            zoom: zoom,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            marker: true
+        });
+        $.getJSON("" + loadStoreUrl, { id: location, City: city },
+		function (data) {
+		    $.each(data, function (index, itemData) {
+		        var contentString = replaceDataModel(itemData, infoWindowPoint);
+		        var infowindow = new google.maps.InfoWindow({
+		            content: contentString
+		        });
+		        var lat = itemData.Latitude;
+		        var lon = itemData.Longitude;
+		        var myLatlng = new google.maps.LatLng(lat, lon)
+		        var marker = new google.maps.Marker({
+		            position: myLatlng,
+		            map: map,
+		        });
+		        marker.addListener('click', function() {
+		            infowindow.open(map, marker);
+		        });
+		    });
+		});
+
+
+    }
+
+    function addMarker(lat, lon, contentString) {
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var location = new google.maps.LatLng(lat, lon);
+
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: { lat: lat, lng: lon },
+            zoom: @(storeSettings.defaultPointZoom),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            marker: true
+        });
+
+        marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+
+    function replaceDataModel(data, structure){
+        var model = structure;
+
+        if(data.City == null)
+            data.City = '';
+
+        model = model.replace('{City}', data.City);
+
+        if(data.StoreLocatorName == null)
+            data.StoreLocatorName = '';
+
+        model = model.replace('{StoreLocatorName}', data.StoreLocatorName);
+
+        if(data.Point == null)
+            data.Point = '';
+
+        model = model.replace('{Point}', data.Point);
+
+        if(data.Email == null)
+            data.Email = '';
+
+        model = model.replace('{Email}', data.Email);
+
+        model = model.replace('{Latitude}', data.Latitude);
+
+        model = model.replace('{Longitude}', data.Longitude);
+
+        if(data.Address == null)
+            data.Address = '';
+
+        model = model.replace('{Address}', data.Address);
+
+        if(data.ZipCode == null)
+            data.ZipCode = '';
+
+        model = model.replace('{ZipCode}', data.ZipCode);
+
+        if(data.Phone == null)
+            data.Phone = '';
+
+        model = model.replace('{Phone}', data.Phone);
+
+        if(data.AdditionalInfo == null)
+            data.AdditionalInfo = '';
+
+        model = model.replace('{AdditionalInfo}', data.AdditionalInfo);
+
+        return model;
+    }
+
+    $(document).ready(function () {
+
+        var checkExist = setInterval(function() {
+            if ($(map).length) {
+                initPoints('', '', @(storeSettings.defaultGlobalZoom), latitude, longitude);
+                clearInterval(checkExist);
+            }
+        }, 100); // check every 100ms
+
+        $("#selectCity").change(function () {
+            var city = $(this).val();
+            $.getJSON("" + loadCityUrl, { city: city },
+            function (citydata) {
+                var select = $("#selectPoint");
+                select.empty();
+                $.each(citydata, function (index, itemData) {
+                    select.append($('<option/>', {
+                        value: itemData.Id,
+                        text: itemData.Point
+                    }));
+                });
+
+                var City = $("#selectCity").val();
+                var Location = $("#selectPoint").val();
+
+
+                $.getJSON("" + loadCityUrl, { City: City },
+                function (data) {
+                    var select = $("#StorePoint");
+                    select.empty();
+                    if(Object.keys(data).length > 0)
+                    {
+                        if(Object.keys(data).length == 1)
+                        {
+                            initPoints(data[0].id, City, @(storeSettings.defaultPointZoom), Number(data[0].Latitude), Number(data[0].Longitude));
+                        }
+                        else
+                        {
+                            initPoints('', City, @(storeSettings.defaultCityZoom), Number(data[0].Latitude), Number(data[0].Longitude));
+                        }
+                        if(showInfoPoints=='True')
+                        {
+                            $.each(data, function (index, itemData) {
+                                lat = itemData.Latitude;
+                                lon = itemData.Longitude;
+                                var itemDataModel = replaceDataModel(itemData, infoPoint);
+                                var contentString = replaceDataModel(itemData, infoWindowPoint);
+                                select.append(
+                                    '<a id="city" herf="#" onclick="addMarker(' + lat + ',' + lon + ','+"'"+contentString+"'"+');return false;"><b><br/>' + itemData.StoreLocatorName + '</b></a><br/>'+ itemDataModel + '<hr />'
+                                );
+                            });
+                        }
+                    }
+                    else
+                    {
+                        var selectPoint = $("#selectPoint");
+                        selectPoint.empty();
+                        selectPoint.append('<option value="">@T("Plugin.Widgets.StoreLocator.SelectPointOption")</option>');
+                        initPoints('', '', @(storeSettings.defaultGlobalZoom), latitude, longitude);
+                    }
+                });
+            });
+
+        });
+
+        $("#selectPoint").change(function () {
+            var City = $("#selectCity").val();
+            var Location = $("#selectPoint").val();
+            $.getJSON("" + loadStoreUrl , { id: Location, City: City },
+            function (data) {
+                var select = $("#StorePoint");
+                select.empty();
+                var lat, lon;
+                $.each(data, function (index, itemData) {
+                    lat = Number(itemData.Latitude);
+                    lon = Number(itemData.Longitude);
+                    initPoints(itemData.Id, City, @(storeSettings.defaultPointZoom), lat, lon);
+
+                    if(showInfoPoints=='True')
+                    {
+                        var itemDataModel = replaceDataModel(itemData, infoPoint);
+                        select.append(
+                            '<a id="city" herf="#" onclick="addMarker(' + lat + ',' + lon + ');return false;"><b><br/>' + itemData.StoreLocatorName + '</b></a><br/>'+itemDataModel
+                        );
+                    }
+                });
+            });
+        });
+    });
+
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=@(storeSettings.googleApiKey)&callback=initMap"
+        async defer asp-location="Footer"></script>
+
+<div class="page-title">
+    <h1>@T("Plugins.Widgets.StoreLocator")</h1>
+</div>
+
+<div class="page-body">
+    @await Component.InvokeAsync("Widget", new { widgetZone = "storeLocator_page_top" })
+    <div class="StoreMap">
+        <div id="map_canvas" class="map_canvas"></div>
+        <div class="select-city-point">
+            <span class="span-select-city-point">@T("Plugin.Widgets.StoreLocator.SelectCity")</span>
+            <div class="custom-select">
+                <select id="selectCity">
+                    <option value="0">@T("Plugin.Widgets.StoreLocator.SelectCityOption")</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.City">@item.City</option>
+                    }
+                </select>
+                <br />
+                <span class="span-custom-select">@T("Plugin.Widgets.StoreLocator.SelectPoint")</span>
+                <div class="custom-select">
+                    <select id="selectPoint" name="selectPoint">
+                        <option value="">@T("Plugin.Widgets.StoreLocator.SelectPointOption")</option>
+                    </select>
+                </div>
+                <div>
+                    <div id="StorePoint"></div>
+                </div>
+            </div>
+            @storeSettings.a
+        </div>
+        <div id="map"></div>
+    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = "storeLocator_page_bottom" })
+</div>

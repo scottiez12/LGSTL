@@ -1,0 +1,142 @@
+﻿@model Nop.Plugin.Widgets.StoreLocator.ConfigurationModel
+@using Microsoft.AspNetCore.Routing;
+
+@{ 
+    var defaultGridPageSize = Nop.Core.Infrastructure.EngineContext.Current.Resolve<Nop.Core.Domain.Common.AdminAreaSettings>().DefaultGridPageSize;
+    var gridPageSizes = Nop.Core.Infrastructure.EngineContext.Current.Resolve<Nop.Core.Domain.Common.AdminAreaSettings>().GridPageSizes;
+}
+
+
+<div id="storeLocators-grid"></div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#storeLocators-grid").kendoGrid({
+        dataSource: {
+            type: "json",
+            transport: {
+                read: {
+                    url: "@Html.Raw(Url.Action("StoreLocatorsList", "StoreLocators" ))",
+                    type: "POST",
+                    dataType: "json",
+                    data: addAntiForgeryToken
+                },
+                destroy: {
+                    url: "@Html.Raw(Url.Action("StoreLocatorsDelete", "StoreLocators" ))",
+                    type: "POST",
+                    dataType: "json",
+                    data: addAntiForgeryToken
+                }
+            },
+            schema: {
+                data: "Data",
+                total: "Total",
+                errors: "Errors",
+                model: {
+                    id: "Id"
+                }
+            },
+            requestEnd: function (e) {
+                if (e.type == "update") {
+                    this.read();
+                }
+            },
+            error: function (e) {
+                display_kendoui_grid_error(e);
+                // Cancel the changes
+                this.cancelChanges();
+            },
+            pageSize: @(defaultGridPageSize),
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        },
+        pageable: {
+            refresh: true,
+            pageSizes: [@(gridPageSizes)]
+        },
+        editable: {
+            confirmation: false,
+            mode: "inline"
+        },
+        scrollable: false,
+        columns: [
+        {
+            field: "Point",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.Point")",
+            width: 100
+        }, {
+            field: "StoreLocatorName",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.StoreLocatorName")",
+            width: 150
+        },{
+            field: "CountryName",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.Country")",
+            width: 100
+        }, {
+            field: "StateProvinceName",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.StateProvince")",
+            width: 100
+        }, {
+            field: "ZipCode",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.ZipCode")",
+            width: 100
+        }, {
+            field: "City",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.City")",
+            width: 100
+        }, {
+            field: "Address",
+            title: "@T("Plugins.Widgets.StoreLocator.Fields.Address")",
+            width: 300
+        },
+        {
+            field: "Id",
+            title: "@T("Admin.Common.Edit")",
+            width: 100,
+            template: "<input type='submit' id=\"edit-button-#= Id #\" value='@T("Admin.Common.Edit")' onclick=\"javascript:OpenWindow('@Url.RouteUrl("Plugin.Widgets.StoreLocator.EditPopup")?id=#=Id#&btnId=btnRefresh&formId=storeLocator-form', 800, 400, true); return false;\" class='k-button' />"
+        },  {
+            command: { name: "destroy", text: "@T("Admin.Common.Delete")" },
+            title: "@T("Admin.Common.Delete")",
+            width: 100
+        }]
+    });
+});
+</script>
+
+<div style="border:solid 0px red;">
+@{
+    var addNewUrl = Url.RouteUrl("Plugin.Widgets.StoreLocator.AddPopup") + "?btnId=btnRefresh&formId=storeLocator-form";
+}
+    <input type="submit" id="btnAddNewOption" value="Add Store location"
+           onclick="javascript:OpenWindow('@(addNewUrl)', 800, 450, true); return false;"
+           class="k-button" />
+
+    <input type="submit" id="btnRefresh" style="display: none" />
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#btnRefresh').click(function () {
+                    var grid = $("#storeLocators-grid").data('kendoGrid');
+                    grid.dataSource.read();
+                    return false;
+                });
+            });
+    </script>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        toggleStoreUrl();
+        $("#@Html.IdFor(model => model.Page)").click(toggleStoreUrl);
+
+    });
+
+    function toggleStoreUrl() {
+        if ($('#@Html.IdFor(model => model.Page)').is(':checked')) {
+            $('#trStoreUrl').show();
+        }
+        else {
+            $('#trStoreUrl').hide();
+        }
+    }
+</script>

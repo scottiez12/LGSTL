@@ -1,0 +1,50 @@
+﻿#map 
+{
+    height: 100%;
+}
+#StorePoint
+{
+    font-size:14px; 
+    text-align:left; 
+    line-height: 20px;
+}
+.map_canvas
+{
+    height:650px; 
+    margin-bottom: 20px;
+}
+.StoreMap
+{
+    position:relative;
+}
+.select-city-point
+{
+    width: 250px;
+    background: #FFF;
+    padding: 0.5% 1%;
+    left: 1%;
+    top: 8%;
+    position: absolute;
+}
+.span-select-city-point
+{
+    line-height: 20px;
+}
+
+.span-custom-select
+{
+    padding-right:30px; 
+    padding-bottom:30px;
+    line-height: 20px;
+}
+
+@media only screen and ( max-width : 768px)
+{
+.select-city-point 
+{
+    width: 230px;
+}
+
+}
+
+
