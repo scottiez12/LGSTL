@@ -18,7 +18,6 @@
     "SevenSpikes.Core",
     "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu",
     "Widgets.QuickMenu",
-    "ExternalAuth",
     "Widgets.StoreLocator"
   ],
   "PluginNamesToUninstall": [],
