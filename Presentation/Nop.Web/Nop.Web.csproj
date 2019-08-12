@@ -40,6 +40,7 @@
 
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <None Remove="Themes\Flexo\Content\css\octagon.css" />
     <None Remove="Themes\Flexo\Content\images\lgstlresizetest.png" />
     <None Remove="Themes\Flexo\Content\images\logo-light.png" />
     <None Remove="Themes\Flexo\Content\images\logo.png" />
