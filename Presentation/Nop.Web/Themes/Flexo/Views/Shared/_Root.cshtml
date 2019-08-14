@@ -25,9 +25,11 @@
 </div>
         <div class="master-column-wrapper">
             @RenderBody()
+            <div style="clear:both"></div>
         </div>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentAfter })
     </div>
+
     @await Component.InvokeAsync("Footer")
 </div>
 @await Component.InvokeAsync("EuCookieLaw")

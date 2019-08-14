@@ -30,6 +30,8 @@
 }
 
 
+<!--for octagon slider-->
+<link href="~/Themes/Flexo/Content/css/octagon.css" rel="stylesheet" />
 
 
 <div class="container">
@@ -40,8 +42,6 @@
         }
     }
     <div class="side-2">
-        <!--for octagon slider-->
-        <link href="~/Themes/Flexo/Content/css/octagon.css" rel="stylesheet" />
 
 
         @if (IsSectionDefined("left"))
@@ -52,47 +52,53 @@
         {
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
             @*@await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
-            @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
-            @await Component.InvokeAsync("VendorNavigation")
-            @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
-            @await Component.InvokeAsync("PopularProductTags")
-            @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })*@
-
-
-
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
+                @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
+                @await Component.InvokeAsync("VendorNavigation")
+                @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
+                @await Component.InvokeAsync("PopularProductTags")
+                @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })*@
 
             <!--this is where we're gonna put their "shiny" content.. probably another carousel or something.
-        Thinking common links.. especially the book now. Maybe replicate the carousel from the home page with some smaller images..
-            something along those lines
-        -->
-
+            Thinking common links.. especially the book now. Maybe replicate the carousel from the home page with some smaller images..
+                something along those lines
+            -->
             <!--gonna try the octagon image slider thing here.. embedding links to nav would be ideal-->
             <!--
-                SERIOUS CSS LINER NOTES HERE
+            SERIOUS CSS LINER NOTES HERE
 
-                tweaking around in the inspector------
+            tweaking around in the inspector------
 
-                taking off the .master-column-wrapper margin completely helped with a lot of empty space
-                .side-2 width 51%
-                .center-2 width 49%
-                .center-2, .side-2 got rid of the margin overall, and the margin right (though I might have added this messing with stuff)
+            taking off the .master-column-wrapper margin completely helped with a lot of empty space
+            .side-2 width 51%
+            .center-2 width 49%
+            .center-2, .side-2 got rid of the margin overall, and the margin right (though I might have added this messing with stuff)
 
-                all the above "fixes" the current version of the octagon thing.. not sure how it would work on mobile because it DOESNT SEEM RESPONSIVE but I'm not sure about that yet
-                
-                experiment with the 'clip' and 'polygon' sizes in the octagon css
-                -->
+            all the above "fixes" the current version of the octagon thing.. not sure how it would work on mobile because it DOESNT SEEM RESPONSIVE but I'm not sure about that yet
+
+            experiment with the 'clip' and 'polygon' sizes in the octagon css
+            -->
+
+
+
             <div class="octagon" id="octagon">
                 <img src="~/Themes/Flexo/Content/images/lgstlresizetest.png" />
-                <img src="~/Themes/Flexo/Content/images/logo-light.png" />
-                <img src="~/Themes/Flexo/Content/images/LogoLong.png" />
                 <img src="~/Themes/Flexo/Content/images/LogoStacked.png" />
+                <img src="~/Themes/Flexo/Content/images/LogoLong.png" />
             </div>
+            <!--for octagon slider-->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="~/Themes/Flexo/Content/js/jquery.tiles-slider.js"></script>
+            <script src="~/Themes/Flexo/Content/js/app.js"></script>
+
+        <p>stuff <br /> stuff <br /> stuff <br /> stuff <br /></p>
 
 
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
         }
     </div>
+
+
     <div class="center-2">
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnBefore })
         @RenderBody()
@@ -100,7 +106,6 @@
     </div>
 </div>
 
-<!--for octagon slider-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="~/Themes/Flexo/Content/js/jquery.tiles-slider.js"></script>
-<script src="~/Themes/Flexo/Content/js/app.js"></script>
+<div style="clear:both"></div>
+
+

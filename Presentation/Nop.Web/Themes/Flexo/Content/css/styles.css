@@ -193,7 +193,7 @@ label, label + * {
 }
 
 .center-2, .side-2 {
-    margin: 0 0 50px;
+    /*margin: 0 0 50px;*/
 }
 
     .side-2:after {
@@ -7779,13 +7779,19 @@ pre {
 
     .center-2 {
         float: right;
-        width: 81%;
-        padding-left: 20px;
+        /*width: 81%;*/
+        width: 76%;
+        /*padding-left: 20px;*/
     }
 
     .side-2 {
         float: left;
-        width: 19%;
+        /*width: 19%;*/
+        width: 23%;
+        /*position fixed added.. trying to keep side-2 in the SAME PLACE
+        */
+        position:fixed;
+        height:400px;
     }
 
     .page {
@@ -8972,7 +8978,7 @@ pre {
 }
 /********************Add new css for theme*******************/
 .container {
-    width: 1200px;
+    width: 100%;
     margin: auto;
     padding-left: 10px;
     padding-right: 10px;
@@ -10200,8 +10206,8 @@ label {
 }
 
 .master-column-wrapper {
-    max-width: 1200px;
-    margin: auto;
+    max-width: 100%;
+    /*margin: auto;*/
 }
 
 .html-home-page .master-column-wrapper {

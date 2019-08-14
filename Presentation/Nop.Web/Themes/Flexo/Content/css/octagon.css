@@ -2,20 +2,21 @@
  * Octagon
  */
 .octagon {
-  position: relative;
-  width: 600px;
-  height: 600px;
-  margin: 100px auto;
-  overflow: hidden;
+    /*position: center;*/
+    width: 100%;
+    height: 100%;
+    margin: 50px 50px;
+    padding: 40px 40px;
+    overflow: hidden;
 }
 
-.octagon img {
-  display: none;
-}
+    .octagon img {
+        display: none;
+    }
 
-.octagon .o {
-  display: block;
-}
+    .octagon .o {
+        display: block;
+    }
 
 
 /*
@@ -23,130 +24,119 @@
 */
 
 .o {
-  position: absolute;
-  background-attachment: fixed;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+    position: absolute;
+    background-attachment: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
 }
 
 .o-shape {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .o-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: .0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: .0;
+    width: 100%;
+    height: 100%;
 }
 
 .o-title {
-  color: #fff;
-
-  font-size: 100px;
-  font-family: impact;
-  letter-spacing: 45px;
-  line-height: 410px;
-  text-align: center;
-  text-transform: uppercase;
-
-  margin-left: -20px;
-  position: relative;
-  z-index: 200;
+    color: #fff;
+    font-size: 100px;
+    font-family: impact;
+    letter-spacing: 45px;
+    line-height: 410px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-left: -20px;
+    position: relative;
+    z-index: 200;
 }
 
-.o-title span {
-  margin-top: 65px;
-  left: 30px;
+    .o-title span {
+        margin-top: 65px;
+        left: 30px;
+        letter-spacing: 35px;
+        width: 100%;
+        font-size: 20px;
+        font-family: arial;
+        display: block;
+        position: absolute;
+    }
 
-  letter-spacing: 35px;
+    /*300, 200, 400, 700, 500, 100
 
-  width: 100%;
-  font-size: 20px;
-  font-family: arial;
-  display: block;
-  position: absolute;
-}
+        cut these all in half to start, now the issue is that with the "position:fixed", it runs into the footer.. need to find a way to not only
+        A: make side-2 stay above the footer no matter what
+        B: make the side column move BELOW center-2 after media size shrinks to a certain point.. from what I see now, it's around 1000px width
 
+    */
 
-/* Fisrt Part 1 - 4 */
-
+/*#region First part 1-4 */
 .o-0 {
-  clip-path: polygon(300px 300px, 200px 400px, 400px 400px);
+    clip-path: polygon(150px 150px, 100px 200px, 200px 200px);
 }
-
 .o-1 {
-  clip-path: polygon(300px 300px, 400px 400px, 400px 200px);
+    clip-path: polygon(150px 150px, 200px 200px, 200px 100px);
 }
-
 .o-2 {
-  clip-path: polygon(300px 300px, 200px 200px, 400px 200px);
+    clip-path: polygon(150px 150px, 100px 100px, 200px 100px);
 }
-
 .o-3 {
-  clip-path: polygon(300px 300px, 200px 200px, 200px 400px);
+    clip-path: polygon(150px 150px, 100px 100px, 100px 200px);
 }
-
-
-/* Second Part 5 - 8 */
-
+/*#endregion */
+/*#region Secong part 5-8 */
 .o-4 {
-  clip-path: polygon(300px 600px, 200px 400px, 400px 400px);
+    clip-path: polygon(150px 300px, 100px 200px, 200px 200px);
 }
-
 .o-5 {
-  clip-path: polygon(600px 300px, 400px 400px, 400px 200px);
+    clip-path: polygon(300px 150px, 200px 200px, 200px 100px);
 }
-
 .o-6 {
-  clip-path: polygon(300px 0, 200px 200px, 400px 200px);
+    clip-path: polygon(150px 0, 100px 100px, 200px 100px);
 }
-
 .o-7 {
-  clip-path: polygon(0 300px, 200px 400px, 200px 200px);
+    clip-path: polygon(0 150px, 100px 200px, 100px 100px);
 }
-
-/* Second Part 9 - 16 */
-
+/*#endregion */
+/*#region Section part 9-16 */
 .o-8 {
-  clip-path: polygon(300px 600px, 400px 400px, 500px 500px);
+    clip-path: polygon(150px 300px, 200px 200px, 250px 250px);
 }
-
 .o-9 {
-  clip-path: polygon(500px 500px, 400px 400px, 600px 300px);
+    clip-path: polygon(250px 250px, 200px 200px, 300px 150px);
 }
-
 .o-10 {
-  clip-path: polygon(600px 300px, 400px 200px, 500px 100px);
+    clip-path: polygon(300px 150px, 200px 100px, 250px 50px);
 }
-
 .o-11 {
-  clip-path: polygon(300px 0, 400px 200px, 500px 100px);
+    clip-path: polygon(150px 0, 200px 100px, 250px 50px);
 }
-
 .o-12 {
-  clip-path: polygon(100px 100px, 200px 200px, 300px 0);
+    clip-path: polygon(50px 50px, 100px 100px, 150px 0);
 }
 
 .o-13 {
-  clip-path: polygon(100px 100px, 0 300px, 200px 200px);
+    clip-path: polygon(50px 50px, 0 150px, 100px 100px);
 }
 
 .o-14 {
-  clip-path: polygon(0 300px, 100px 500px, 200px 400px);
+    clip-path: polygon(0 150px, 50px 250px, 100px 200px);
 }
 
 .o-15 {
-  clip-path: polygon(200px 400px, 100px 500px, 300px 600px);
+    clip-path: polygon(100px 200px, 50px 250px, 150px 300px);
 }
-
+/*#endregion */

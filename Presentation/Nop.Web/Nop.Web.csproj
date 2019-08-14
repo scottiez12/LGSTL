@@ -41,11 +41,15 @@
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
     <None Remove="Themes\Flexo\Content\css\octagon.css" />
+    <None Remove="Themes\Flexo\Content\css\OctagonOriginalSizes.txt" />
     <None Remove="Themes\Flexo\Content\images\lgstlresizetest.png" />
     <None Remove="Themes\Flexo\Content\images\logo-light.png" />
     <None Remove="Themes\Flexo\Content\images\logo.png" />
     <None Remove="Themes\Flexo\Content\images\LogoLong.png" />
     <None Remove="Themes\Flexo\Content\images\LogoStacked.png" />
+    <None Remove="Themes\Flexo\Content\js\app.js" />
+    <None Remove="Themes\Flexo\Content\js\jquery.tiles-slider.es5.js" />
+    <None Remove="Themes\Flexo\Content\js\jquery.tiles-slider.js" />
     <None Remove="Themes\LivingGreenStL\Content\css\print.css" />
     <None Remove="Themes\LivingGreenStL\Content\css\styles.css" />
     <None Remove="Themes\LivingGreenStL\Content\css\styles.rtl.css" />

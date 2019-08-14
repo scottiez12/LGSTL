@@ -1,0 +1,72 @@
+﻿/*Going to try to change these proportions.. Going to copy/paste the original here for reference/if things go awry.
+
+
+.o-0 {
+    clip-path: polygon(300px 300px, 200px 400px, 400px 400px);
+}
+
+.o-1 {
+    clip-path: polygon(300px 300px, 400px 400px, 400px 200px);
+}
+
+.o-2 {
+    clip-path: polygon(300px 300px, 200px 200px, 400px 200px);
+}
+
+.o-3 {
+    clip-path: polygon(300px 300px, 200px 200px, 200px 400px);
+}
+
+
+
+.o-4 {
+    clip-path: polygon(300px 600px, 200px 400px, 400px 400px);
+}
+
+.o-5 {
+    clip-path: polygon(600px 300px, 400px 400px, 400px 200px);
+}
+
+.o-6 {
+    clip-path: polygon(300px 0, 200px 200px, 400px 200px);
+}
+
+.o-7 {
+    clip-path: polygon(0 300px, 200px 400px, 200px 200px);
+}
+
+
+
+.o-8 {
+    clip-path: polygon(300px 600px, 400px 400px, 500px 500px);
+}
+
+.o-9 {
+    clip-path: polygon(500px 500px, 400px 400px, 600px 300px);
+}
+
+.o-10 {
+    clip-path: polygon(600px 300px, 400px 200px, 500px 100px);
+}
+
+.o-11 {
+    clip-path: polygon(300px 0, 400px 200px, 500px 100px);
+}
+
+.o-12 {
+    clip-path: polygon(100px 100px, 200px 200px, 300px 0);
+}
+
+.o-13 {
+    clip-path: polygon(100px 100px, 0 300px, 200px 200px);
+}
+
+.o-14 {
+    clip-path: polygon(0 300px, 100px 500px, 200px 400px);
+}
+
+.o-15 {
+    clip-path: polygon(200px 400px, 100px 500px, 300px 600px);
+}
+
+*/
