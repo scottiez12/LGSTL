@@ -40,13 +40,26 @@
 
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <None Remove="Themes\Flexo\Content\css\CustomViewCSS.css" />
     <None Remove="Themes\Flexo\Content\css\octagon.css" />
     <None Remove="Themes\Flexo\Content\css\OctagonOriginalSizes.txt" />
+    <None Remove="Themes\Flexo\Content\documents\DISCLAIMER.docx" />
+    <None Remove="Themes\Flexo\Content\documents\HIPAA (1).docx" />
+    <None Remove="Themes\Flexo\Content\documents\intake.docx" />
+    <None Remove="Themes\Flexo\Content\documents\MEDICAL MARIJUANA INFORMED CONSENT FORM.docx" />
+    <None Remove="Themes\Flexo\Content\documents\pdf\Cancellation.pdf" />
+    <None Remove="Themes\Flexo\Content\documents\pdf\DISCLAIMER-converted.pdf" />
+    <None Remove="Themes\Flexo\Content\documents\pdf\HIPAA (1)-converted.pdf" />
+    <None Remove="Themes\Flexo\Content\documents\pdf\intake-converted.pdf" />
+    <None Remove="Themes\Flexo\Content\documents\pdf\MEDICAL MARIJUANA INFORMED CONSENT FORM.pdf" />
+    <None Remove="Themes\Flexo\Content\documents\pdf\Qualifying Doc.pdf" />
+    <None Remove="Themes\Flexo\Content\documents\Qualifying Doc.docx" />
     <None Remove="Themes\Flexo\Content\images\lgstlresizetest.png" />
     <None Remove="Themes\Flexo\Content\images\logo-light.png" />
     <None Remove="Themes\Flexo\Content\images\logo.png" />
     <None Remove="Themes\Flexo\Content\images\LogoLong.png" />
     <None Remove="Themes\Flexo\Content\images\LogoStacked.png" />
+    <None Remove="Themes\Flexo\Content\images\New folder\medical-marijuana.jpg" />
     <None Remove="Themes\Flexo\Content\js\app.js" />
     <None Remove="Themes\Flexo\Content\js\jquery.tiles-slider.es5.js" />
     <None Remove="Themes\Flexo\Content\js\jquery.tiles-slider.js" />

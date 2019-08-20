@@ -10886,6 +10886,19 @@ label {
     }
 }
 
-div#googleMap {
+div #googleMap {
     position: inherit;
+}
+
+/*MMJ Card */
+
+#MmjTop {
+    border: 5px solid #376234;
+    border-radius: 12px;
+    background-color: #929492;
+    /* border-spacing: 10px; */
+}
+
+#MmjContent {
+    padding: 5px 5px;
 }
