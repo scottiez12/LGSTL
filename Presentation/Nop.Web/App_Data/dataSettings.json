@@ -13,7 +13,15 @@
   Just used the above 'DataProvider'... not sure if this matters until we test it out.
   */
 {
+  //"DataProvider": "sqlserver",
+  //"DataConnectionString": "Data Source=SQL5018.site4now.net;  Initial Catalog=DB_A45938_livingGreenStl;  User Id=DB_A45938_livingGreenStl_admin;  Password=MilesIn2013!;",
+  //"RawDataSettings": {}
+
   "DataProvider": "sqlserver",
-  "DataConnectionString": "Data Source=SQL5018.site4now.net;  Initial Catalog=DB_A45938_livingGreenStl;  User Id=DB_A45938_livingGreenStl_admin;  Password=MilesIn2013!;",
+  "DataConnectionString": "Data Source=tcp:s07.everleap.com; Initial Catalog=DB_5277_lgstl; User Id=DB_5277_lgstl_user; Password=Desk12121323!; Integrated Security=False; ",
   "RawDataSettings": {}
+
+
 }
+
+

@@ -10272,11 +10272,11 @@ label {
     }
 
         .headerfixed .header-logo a {
-            background: url('../images/minilogo.png') no-repeat;
-            /*background: url(../images/logo-light.png) no-repeat;*/
+            /*background: url('../images/minilogo.png') no-repeat;*/
+            /*background: url(../images/logo-light.png) no-repeat;
             width: 30px;
             height: 35px;
-            background-size: 100% auto
+            background-size: 100% auto*/
         }
 
             .headerfixed .header-logo a img {
